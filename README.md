@@ -5,8 +5,7 @@ If you're reading this, it's either because you want to know about the project o
 
 #1. This project is a Firefox
 addon that allows players to find cards that can find other, specific cards (called searchers), create combos, view combos, and easily 
-navigate to another source (Yugipedia) that offers additional information. More abstractly, it's a GUI that communicates with a backend, 
-which stores the information previously mentioned in addition to the images of cards.
+navigate to another source (Yugipedia) that offers additional information. More abstractly, it's a GUI that communicates with a backend that stores the information previously mentioned in addition to the images of cards.
 
 Setting up this project is simple although its features won't be functional without its backend, which is not included in this repository.
 Simply open Firefox, open the Add-ons Manager (its icon is the puzzle piece in the top-most, right-most section of Firefox), click the cog 
