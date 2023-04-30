@@ -53,4 +53,4 @@ QTWBAF (Questions That Would Be Asked Frequently [if this hypothetically saw any
   These all rely on the backend, so they don't work as ideally intended (or at all) without the backend.
   
 #3 Some cards can't be found when I search for the name, why? 
-  This relies on what cards "cards.json" supplies, and cards.json can be and most likely is out of date! (such as it is at the time of this wiritng :3)
+  This relies on what cards "cards.json" supplies, and cards.json can be and most likely is out of date! (such as it is at the time of this writing :3)
