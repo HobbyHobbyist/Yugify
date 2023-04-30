@@ -1,7 +1,9 @@
 # Yugify
 
 If you're reading this, it's either because you want to know about the project or more in-depth informatition so as to navigate it better 
-(maybe for modification?), so this ReadMe will cover those two interests starting with what the project is. #1. This project is a Firefox 
+(maybe for modification?), so this ReadMe will cover those two interests starting with what the project is. 
+
+#1. This project is a Firefox
 addon that allows players to find cards that can find other, specific cards (called searchers), create combos, view combos, and easily 
 navigate to another source (Yugipedia) that offers additional information. More abstractly, it's a GUI that communicates with a backend, 
 which stores the information previously mentioned in addition to the images of cards.
@@ -13,7 +15,10 @@ that appears behind (left to right) the text "Manage Your Extensions" and beneat
 your files to where this project is downloaded, then click this project's "Yugify.js" file. Done!
 
 -- Ignore if not interested in modifying (I just like writing) --
+
 #2. More detailed information that can be used with ctrl + f to navigate the project more easily.
+
+
 The flowchat of what happens is first, the addon pulls from cards.json (this holds all the card info aside from images) to create a list 
 of card names that have their indexes as suffixes. This allows them to be searched and have their indexes, which is used for a number of 
 functions, to be found simultaneously by matching inputed text to card names. Afterwards, the tool and all its subsections are intialized. 
