@@ -1,0 +1,4 @@
+card width to height ratio: .67109929
+
+screen height to width ratio: .625
+

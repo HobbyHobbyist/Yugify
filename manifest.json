@@ -1,0 +1,24 @@
+{
+
+  "manifest_version": 2,
+  "name": "Yugify",
+  "version": "1.0",
+
+  "description": "Modifies",
+
+  "icons": {
+    "48": "icons/yugify_icon.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.duelingbook.com/*"],
+      "js": [ "jquery-3.6.3.min.js", "yugify.js"],
+      "css": ["stylesheet.css"]
+    }
+  ],
+  "permissions": [
+    "http://localhost/*"
+  ]
+
+}

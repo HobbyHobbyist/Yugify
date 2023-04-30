@@ -1,0 +1,970 @@
+:root {
+    --cardWidth: 132.5px; /* this value is obtained from the site itself*/
+    --cardHeight: calc(var(--cardWidth) * 1.49009); /* 1.49009 is the ratio of height to width */
+    --breakpoint: calc((100vmin - 244px) / 4);
+    --excessWidth: 0px;
+
+}
+
+.generalSpan {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    font-size: 3vh;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+#infoHelperTool {
+    position: relative;
+    top: calc(1185px - 250px); /* cardfront_content height is 1185px */
+    left: calc(813px - 250px); /* cardfront_content width is 813px */
+    height: 250px;
+    width: 250px; 
+    border-radius: 512px;
+    background-size: contain;
+    cursor: pointer;
+    transform: none;
+}
+
+#infoHelperTool:hover #infoHelperToolOverlay {
+    opacity: .15;
+}
+
+#infoHelperTool:hover #infoHelperToolTooltip {
+    display: block;
+}
+
+#infoHelperToolOverlay {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    background-color: orangered;
+    border-radius: 512px;
+}
+
+#infoHelperToolTooltip {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    min-width: 600px;
+    left: -600px;
+	height: 50%;
+	background-color: wheat;
+	background: linear-gradient(0deg, #E5E5F1, white);
+	border: 5px solid black;
+	border-radius: 1px;
+	display: none;
+	pointer-events: none;
+
+}
+
+.tooltipSpan {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    font-size: 62px;
+	font-weight: bold;
+    text-align: center;
+
+}
+
+.tooltipSpan[data-not_constrained_by_xtevens_fuckery="true"] {
+    font-size: 26px;
+}
+
+
+.optionOverlay { 
+    width: 100%;
+    height: 100%;
+}
+
+.optionOverlay:hover .untransformedTooltip {
+    display: block;
+}
+
+#addonField {
+    display: none;
+    position: relative;
+    left: 244px;
+	top: 5px;
+    width: calc(100% - 244px);
+	height: calc(0% + 0px);
+    background-color: hsl(203, 25%, 50%);
+    border-radius: 1vh;
+    opacity: .05;
+    transition:.75s;
+}
+
+#addonField[data-open="true"] {
+    width: calc(100% - 244px);
+	height: calc(100% - 5px);
+    opacity: 1;
+}
+
+#addonField[data-open="false"] {
+    display: none;
+    width: calc(0% - 0px);
+	height: calc(0% - 0px);
+    opacity: .05;
+}
+
+#yugipediaSection {
+    position: relative;
+    height: 25%;
+    width: 100%;
+    border-radius: 1vh 1vh 0 0;
+    box-shadow: inset -.1vw -.25vh black, inset .1vw .1vh black;
+    background-color: hsl(173, 25%, 50%);
+    transition: .75s;
+    
+}
+
+#yugipediaIconBackdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(128, 25%, 50%);
+    border-radius: 1vh 0 0 0;
+    clip-path: polygon(0% 0%, calc(36.25% - 1vh) 0%, 15% calc(100% - .25vh), 0% calc(100% - .25vh));
+
+}
+
+
+#yugipediaIcon {
+    position: relative;
+    width: 15%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.diagonalLine {
+    position: absolute;
+    top: calc(-.25vh - 45%); /* the .25vh accounts for the div's width, which isn't factored into its new height --- */
+        /* while the percentage accounts for the excess amount of the line's height over the yugipedia's section (100%) */
+    height: 145%; /* This height can be found by multiping the 100% (the baseline height percentage) by .45 on account of being--*/
+    width: .25vh; /* rotated by .45 degrees */
+    background-color: black; 
+    left: 15%;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+
+}
+
+#yugipediaLinkSpan {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3vh;
+    cursor: pointer;
+    
+}
+
+#yugipediaLinkSpan:hover {
+    color: hsl(179, 50%, 50%);
+}
+
+
+.sectionSpanBlock {
+    position: absolute;
+    top: -30%; /* centering for a height of 80% gives a value of 10% (which I multiplied by 2) while centering for the transform --*/
+    left: 10%;
+    width: 80%; /* requires -50% */
+    height: 80%;
+    transform: translateY(50%);
+    text-align: center;
+    transition: .75s;
+}
+
+.sectionSpanBlock[data-hiding="true"] {
+    opacity: 0;
+    pointer-events: none;
+    transition: .75s;
+    transform: translateY(-50%);
+    top: 75%;
+}
+
+.sectionSpan {
+    display: block;
+    position: relative;
+    top: 50%;
+    margin: auto;
+    font-size: 7vh;
+    text-align: center;
+    transform: translateY(-50%);
+}
+
+#searchersSection {
+    position: relative;
+    height: 37.5%;
+    width: 100%;
+    background-color: hsl(303, 25%, 50%);
+    box-shadow: inset 0vw -.25vh black;
+    cursor: pointer;
+    transition: .75s;
+    overflow-y: hidden;
+}
+
+#searchersSection[data-expanded="true"] {
+    width: 100%;
+    height: 100%;
+    border-radius: 1vh;
+    cursor: auto;
+}
+
+#searchersSection[data-expanded="true"] .expandedSection, #comboLinesSection[data-expanded="true"] .expandedSection {
+    transform: none;
+}
+
+
+#comboLinesSection {
+    position: relative;
+    height: 37.5%;
+    width: 100%;
+    background-color: hsl(359, 25%, 50%);
+    border: 0 0 1vh 1vh;
+    box-shadow: inset 0vw -.25vh black;
+    cursor: pointer;
+    transition: .75s;
+    overflow-y: hidden;
+    border-radius: 0 0 1vh 1vh;
+}
+
+
+
+#comboLinesSection[data-expanded="true"] {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 1vh;
+    cursor: auto;
+}
+
+
+
+#comboLinesSection[data-retracting="true"], #searchersSection[data-retracting="true"], #yugipediaSection[data-retracting="true"] {
+    height: 0%;
+    pointer-events: none;
+    color: rgba(0, 0, 0, 0);
+}
+
+
+
+#comboLinesOptionsSection {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 10%;
+    border-radius: 1vh 1vh 0 0;
+    background-color: hsl(303, 25%, 50%);
+    box-shadow: inset .0vw -.1vh black;
+}
+
+
+#comboLinesOptionsSection > * {
+    position: relative;
+    margin-left: 2.5%;
+    height: calc(100% - .1vh);
+    width: 10vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#comboLinesOptionsSection[data-pointer_mode="true"] #establishStepOverlay {
+    display: block;
+}
+
+#establishStepOverlay {
+    display: none;
+}
+
+
+#comboLinesOptionsSection[data-steps_inserted="true"] #submitComboOverlay {
+    display: block;
+}
+
+#comboLinesOptionsSection[data-viewing_combos="true"] #submitComboOverlay {
+    display: none;
+}
+
+#submitComboOverlay {
+    display: none;
+}
+
+
+
+#addComboOverlay {
+    width: 100%;
+    height: 100%;
+}
+
+#addComboOverlay:hover #addComboTooltip {
+    display: block;
+}
+
+#comboLinesCombosSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+    background-color: hsl(359, 25%, 50%);
+    scrollbar-width: none;
+    overflow-y: scroll;
+    box-shadow: inset .1vw .1vh black, inset .1vw -.1vh black;
+
+}
+
+
+#comboLinesCombosSection .comboLineBlock:last-of-type, 
+#comboLinesCombosSection .comboLineBlock:nth-last-of-type(2) {
+    transition: none;
+}
+
+#comboLinesCombosSection .comboLineBlock:last-of-type[data-expanded="false"], 
+#comboLinesCombosSection .comboLineBlock:nth-last-of-type(2)[data-expanded="false"] {
+    transition: .5s;
+}
+
+
+.comboLineBlock {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 45%;
+    width: 100%;
+    transition: .5s;
+}
+
+.comboLineBlock[data-expanded="true"] {
+    min-height: 100%;
+}
+
+.materialSectionsBinder {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    transition: .375s;
+}
+
+.comboLineBlock[data-expanded="true"] .materialSectionsBinder {
+    height: 90%;
+}
+
+
+.requiredMaterialsSection {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 100%;
+    background-color: hsl(98, 25%, 75%);
+    transition: .375s;
+    box-shadow: inset .1vw .0vh black, inset .0vw -.1vh black;
+}
+
+.requiredMaterialsSection .falseCard, .comboResultSection .falseCard {
+    height: 20vmin;
+    width: calc(20vmin * 0.67109929); /* card width to height ratio ratio */ ;
+}
+
+
+
+.comboResultSection {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: hsl(278, 25%, 75%);
+    transition: .375s;
+    box-shadow: inset -.1vw .0vh black, inset .1vw -.1vh black;
+}
+
+
+
+.comboLineBlock:first-child .requiredMaterialsSection {
+    box-shadow: inset .1vw .1vh black, inset .0vw -.1vh black;
+
+}
+
+.comboLineBlock:first-child .comboResultSection {
+    box-shadow: inset -.1vw .1vh black, inset .1vw -.1vh black;
+}
+
+
+.comboBlockStepsSection { 
+    position: relative;
+    visibility: hidden;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    flex-shrink: 0;
+    width: 100%;
+    height: 0%;
+    justify-items: center;
+    flex-wrap: wrap;
+    transition: .375s;
+    background-color: hsl(128, 25%, 50%);
+    opacity: 0;
+
+}
+
+.comboBlockStepsSection::before {
+    content: ""; 
+}
+
+
+.comboBlockStepsSection .comboCreationStep:nth-child(5n) {
+    margin-left: 5%;
+}
+
+.comboLineBlock[data-expanded="true"] .comboBlockStepsSection {
+    visibility: visible;
+    height: 10%;
+    opacity: 1;
+}
+
+.comboStep {
+    align-self: center;
+    position: relative;
+    top: 5%;
+    min-width: 18.75%;
+    height: 80%;
+    background-color: wheat;
+    border-radius: 1vh;
+    box-shadow: inset .1vw .1vh black, inset -.1vw -.1vh black;
+}
+
+.comboStep:hover .stepDescriptionBlock {
+    display: block;
+}
+
+#comboCreationSection {
+    position: relative;
+    display: none;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(173, 25%, 50%);
+    scrollbar-width: none;
+}
+
+
+#closeComboSearchFieldOption {
+    display: none;
+}
+
+#comboCreationCardsHolder {
+    display: none;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 90%;
+    background-color: hsl(173, 25%, 50%);
+    scrollbar-width: none;
+    overflow-y: scroll;
+}
+
+
+
+#comboCreationStartingCardsSection, #comboCreationProductCardsSection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: start;
+    flex: 1;
+    gap: 5%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    height: 80%;
+    width: 50%;
+    box-shadow: inset .1vw .1vh black, inset -.1vw -.1vh black;
+    transition: .37s;
+}
+
+#comboCreationProductCardsSection {
+    background-color: hsl(278, 25%, 75%)
+}
+
+#comboCreationStartingCardsSection {
+    background-color: hsl(98, 25%, 75%)
+
+}
+
+#comboCreationStartingCardsSection .falseCard, #comboCreationProductCardsSection .falseCard {
+    height: 20vmin;
+    width: calc(20vmin * 0.67109929); /* card width to height ratio ratio */ ;
+
+}
+
+#comboCreationStartingCardsSection[data-retracted="true"], 
+#comboCreationProductCardsSection[data-retracted="true"] {
+    height: 40%; /* although the height of the Steps Section 50% when retracted, the bottom of it is 10% */
+}
+
+#comboCreationStartingCardsSection .falseCard .untransformedTooltip, 
+#comboCreationProductCardsSection .falseCard .untransformedTooltip  {
+    left: calc(calc(100% - var(--excessWidth)) / 2);
+    top: 12.5%;
+    width: 20%;
+    height: 25%;
+    position: fixed;
+    z-index: 10000;
+}
+
+
+#addStartingCard {
+    position: relative;
+    margin-top: 1%;
+    margin-left: 1%;
+    height: 20vmin;
+    width: calc(20vmin * 0.67109929); /* card width to height ratio ratio */ 
+    background-color: aliceblue;
+    background-image: url("icons/view_searchers_icon.jpg");
+    background-size: contain;
+    box-shadow: inset .1vw .1vh black, inset -.1vw -.1vh black;
+    cursor: pointer;
+}
+
+#addProductCard {
+    position: relative;
+    margin-top: 1%;
+    margin-left: 1%;
+    height: 20vmin;
+    width: calc(20vmin * 0.67109929); /* card width to height ratio ratio */ 
+    background-color: hsl(229, 50%, 50%, .5);
+    background-image: url("icons/view_searchers_icon.jpg");
+    background-size: contain;
+    background-blend-mode: overlay;
+    box-shadow: inset .1vw .1vh black, inset -.1vw -.1vh black;
+    cursor: pointer;
+}
+
+#addStartingCard:hover .untransformedTooltip, #addProductCard:hover .untransformedTooltip  {
+    display: block;
+}
+
+
+#comboStepContextMenu {
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    width: 20vw;
+    height: 50vh;
+    background-color: rgb(3, 3, 3);
+}
+
+#comboStepContextMenu[data-revealed="true"] {
+    display: flex;
+}
+
+#comboStepContextMenu .contextMenuOption {
+    display: block;
+}
+
+
+.inputCluster {
+    position: absolute;
+    display: none;
+    flex-direction: row;
+    left: 50%;
+    top: calc(50% - 16.5%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 33%;
+	background-color: wheat;
+	background: linear-gradient(0deg, #E5E5F1, white);
+	border: 5px solid black;
+	border-radius: 1px;
+	cursor: pointer;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.inputClusterTextField {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    font-size: 4vh;
+    line-height: 100%;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.inputClusterSubmit {
+    position: relative;
+    width: 50%;
+    height: 100%;
+	background-color: wheat;
+	background: linear-gradient(0deg, #E5E5F1, white);
+	cursor: pointer;
+    z-index: 10;
+}
+
+
+
+#comboCreationStepsSection {
+    bottom: 10%;
+    position: absolute; /* positioning this relative messes obscures the StartingCards and ProductCards sections */
+    height: 10%;
+    width: 100%;
+    background-color: hsl(128, 25%, 50%);
+    box-shadow: inset .1vw .1vh black, inset -.1vw -.1vh black;
+    transition: .37s;
+}
+
+
+#comboCreationStepsSection[data-expanded="true"] {
+    height: 50%;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+
+#comboCreationStepsBuffer { /* this buffer exists to counteract the absolute positioning of comboCreationStepsSection */
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    flex-wrap: wrap;
+
+}
+
+#comboCreationStepsBuffer::before {
+    content: ""; 
+}
+
+
+#comboCreationStepsBuffer .comboCreationStep:nth-child(5n) {
+    margin-left: 5%;
+}
+
+
+.comboCreationStep {
+    align-self: center;
+    position: relative;
+    top: 5%;
+    min-width: 18.75%;
+    height: 80%;
+    background-color: wheat;
+    border-radius: 1vh;
+    box-shadow: inset .1vw .1vh black, inset -.1vw -.1vh black;
+}
+
+.comboCreationStep:hover .stepDescriptionBlock {
+    display: block;
+}
+
+#comboCreationStepsSection[data-expanded="true"] .comboCreationStep:hover .stepDescriptionBlock {
+    top: -50vh;
+}
+
+.comboCreationStepSpan {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    font-size: 5vh;
+    transform: translate(-50%, -50%);
+}
+
+.stepDescriptionBlock {
+    z-index: 100;
+    display: none;
+    position: absolute;
+    width: 20vw;
+    height: 33vh;
+    margin-top: -145%;
+    background-color: azure;
+    border-radius: 1vh;
+    box-shadow: inset .1vw .1vh black, inset -.1vw -.1vh black;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.stepDescriptionBlock .generalSpan {
+    width: 95%;
+    top: 0%;
+    transform: translate(-50%, 0%);
+    margin-top: 2.5%;
+}
+
+
+
+
+.expandedSection {
+    width: 100%;
+    height: 100%;
+    border-radius: 1vh;
+    transform: translateY(-100%);
+    transition: .75s;
+    overflow: hidden;
+}
+
+
+#expandedSectionOptions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 10%;
+    border-radius: 1vh 1vh 0 0;
+    background-color: hsl(173, 25%, 50%);
+    box-shadow: inset .0vw -.1vh black;
+}
+
+#expandedSectionOptions > * {
+    position: relative;
+    margin-left: 2.5%;
+    height: calc(100% - .1vh);
+    width: 10vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.returnOptionOverlay {
+    width: 100%;
+    height: 100%;
+}
+
+.returnOptionOverlay:hover .returnTooltip {
+    display: block;
+}
+
+#addCardOverlay {
+    width: 100%;
+    height: 100%;
+}
+
+
+#addCardOverlay:hover #addCardTooltip {
+    display: block;
+}
+
+.untransformedTooltip {
+    display: none;
+    position: absolute;
+    top: calc(50% + 7.5px);
+    transform: translateY(-50%);
+    min-width: 20vw;
+    left: 100%;
+	height: 100%;
+	background-color: wheat;
+	background: linear-gradient(0deg, #E5E5F1, white);
+	border: 5px solid black;
+	border-radius: 1px;
+	pointer-events: none;
+    z-index: 10;
+
+}
+
+.untransformedTooltip[data-on_card="true"] {
+    top: 50%;
+    width: 250%;
+}
+
+.untransformedTooltip[data-leftmost="true"] {
+    left: calc(-20vw - 10px);
+}
+
+
+#cardsSection .falseCard:nth-child(5n - 1) .untransformedTooltip ,
+#cardsSection .falseCard:nth-child(5n) .untransformedTooltip, 
+
+#searchedCardsSection .falseCard:nth-child(5n - 1) .untransformedTooltip,
+#searchedCardsSection .falseCard:nth-child(5n) .untransformedTooltip,
+
+#comboCreationCardsHolder .falseCard:nth-child(5n - 1) .untransformedTooltip,
+#comboCreationCardsHolder .falseCard:nth-child(5n) .untransformedTooltip 
+{
+    left: calc(-250% - 10px) !important;
+}
+
+#cardsSection .falseCard:nth-child(5n - 2) .untransformedTooltip, 
+#searchedCardsSection .falseCard:nth-child(5n - 2) .untransformedTooltip,
+#comboCreationCardsHolder .falseCard:nth-child(5n - 2) .untransformedTooltip 
+{
+    left: 90% !important;
+}
+
+
+.cardSearchField {
+    display: none;
+    min-width: 60%;
+    height: 80%;
+    box-sizing: border-box;
+    font-size: 4vh !important; /* this field is tied with .tooltipSpan, which a font-size of its own that must be overrided */
+}
+
+
+#cardsSection {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+    width: 100%;
+    height: 90%;
+    background-color: hsl(98, 25%, 75%);
+    overflow-y: scroll;
+    scrollbar-width: none;
+    box-shadow: inset .1vw .1vh black, inset -.1vw -.1vh black;
+}
+
+
+
+
+#searchedCardsSection {
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+    width: 100%;
+    height: 90%;
+    background-color: hsl(278, 25%, 75%);
+    overflow-y: scroll;
+    scrollbar-width: none;
+    box-shadow: inset .1vw .1vh black, inset -.1vw -.1vh black;
+}
+
+#searchedCardsSection .falseCard {
+}
+
+
+.falseCard {
+    position: relative;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    height: var(--cardHeight);
+    width: var(--cardWidth);
+    /*width: 20.133vh; this maintains the card's height to width ratio of 0.671099....% (so 30 * 0.67109929...) */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    border-width: 0%;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.falseCard:hover .untransformedTooltip[data-on_card="true"] {
+    display: block;
+    position: absolute;
+    height: 75%;
+}
+
+.falseCard[data-pointer_mode="true"] {
+    border-color: hsl(0, 0%, 100%);
+    border-width: 1%;
+    border-style: solid;
+    border-radius: 1vh;
+}
+
+.cardArtwork {
+    position: absolute;
+    left: 9%; /* left, top, height, and width values are eyeballed as there's no faster and dirter way to handle it */
+    top: 16.5%; /* beyond taking actual measurements, which I'm too lazy to do here */
+    height: 55%;
+    width: 82%;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#deck_constructor[data-obscuring_all="false"] .info_btn, #deck_constructor[data-obscuring_all="false"] .sort_btn, 
+#deck_constructor[data-obscuring_all="false"] .token_btn, #deck_constructor[data-obscuring_all="false"] .total_pendulum_txt, 
+#deck_constructor[data-obscuring_all="false"] .total_spell_txt, #deck_constructor[data-obscuring_all="false"] .total_trap_txt,
+#deck_constructor[data-obscuring_all="false"] #search, #deck_constructor[data-obscuring_all="false"] .deck_card,
+#deck_constructor[data-obscuring_all="false"] .side_card, #deck_constructor[data-obscuring_all="false"] .extra_card,
+#screenshot_btn[data-obscuring="false"] {
+    opacity: 1;
+    pointer-events: all;
+    transition: .75s;
+}
+
+#deck_constructor[data-obscuring_all="true"] .info_btn, #deck_constructor[data-obscuring_all="true"] .sort_btn, 
+#deck_constructor[data-obscuring_all="true"] .token_btn, #deck_constructor[data-obscuring_all="true"] .total_pendulum_txt, 
+#deck_constructor[data-obscuring_all="true"] .total_spell_txt, #deck_constructor[data-obscuring_all="true"] .total_trap_txt,
+#deck_constructor[data-obscuring_all="true"] #search, #deck_constructor[data-obscuring_all="true"] .deck_card,
+#deck_constructor[data-obscuring_all="true"] .side_card, #deck_constructor[data-obscuring_all="true"] .extra_card, 
+#screenshot_btn[data-obscuring="true"]  {
+    opacity: 0;
+    pointer-events: none;
+    transition: .75s;
+}
+
+
+
+#contextMenu {
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    width: 20vw;
+    height: 50vh;
+    background-color: rgb(3, 3, 3);
+}
+
+#contextMenu[data-revealed="true"] {
+    display: flex;
+}
+
+#contextMenu #contextMenuYugipediaOption {
+    display: block;
+}
+
+#contextMenu[data-context="cardsSection"] #contextMenuRemoveOption {
+    display: block;
+}
+
+#contextMenu[data-context="searchedCardsSection"] #contextMenuAddOption {
+    display: block;
+}
+
+#contextMenu[data-context="addingStartingCardsSection"] #contextMenuAddStartingCardOption {
+    display: block;
+}
+
+#contextMenu[data-context="addingProductCardsSection"] #contextMenuAddProductCardOption {
+    display: block;
+}
+
+
+
+#contextMenu[data-context="comboCreationStartingCardsSection"] #contextMenuRemoveStartingCardOption {
+    display: block;
+}
+
+#contextMenu[data-context="comboCreationProductCardsSection"] #contextMenuRemoveProductCardOption {
+    display: block;
+}
+
+.contextMenuOption {
+    display: none;
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+    background: linear-gradient(0deg, #E5E5F1, white);
+    box-shadow: inset .1vw .1vh black, inset -.1vw -.0vh black;
+    cursor: pointer;
+}
+
+.contextMenuOption:last-of-type {
+    box-shadow: inset .1vw .1vh black, inset -.1vw -.1vh black;
+}
+
+
+.card_color[data-overlaying="true"] {
+    filter: sepia(100%) brightness(50%);
+}
