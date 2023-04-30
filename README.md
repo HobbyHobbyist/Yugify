@@ -9,10 +9,10 @@ navigate to another source (Yugipedia) that offers additional information. More 
 which stores the information previously mentioned in addition to the images of cards.
 
 Setting up this project is simple although its features won't be functional without its backend, which is not included in this repository.
-Simply open Firefox, open the Add-ons Manager (its icon is the puzzle piece in the top-most, right-most section of firefox), click the cog 
+Simply open Firefox, open the Add-ons Manager (its icon is the puzzle piece in the top-most, right-most section of Firefox), click the cog 
 that appears behind (left to right) the text "Manage Your Extensions" and beneath the add-ons search field. It will have the option to 
 "Debug Add-ons." Click it. There will be a section called "Temporary Extensions" with an option "Load Temporary Add-ons." Click it, navigate 
-your files to where this project is downloaded, then click this project's "Yugify.js" file. Done!
+your files to where this project is downloaded, then click this project's "yugify.js" file. Done!
 
 ------------------------------------------------------------------------------------------------
 -- Ignore if not interested in modifying (I just like writing) --
@@ -20,7 +20,7 @@ your files to where this project is downloaded, then click this project's "Yugif
 #2. More detailed information that can be used with ctrl + f to navigate the project more easily.
 
 
-The flowchat of what happens is first, the addon pulls from cards.json (this holds all the card info aside from images) to create a list 
+The flowchat of what happens is, first, the addon pulls from cards.json (this holds all the card info aside from images) to create a list 
 of card names that have their indexes as suffixes. This allows them to be searched and have their indexes, which is used for a number of 
 functions, to be found simultaneously by matching inputed text to card names. Afterwards, the tool and all its subsections are intialized. 
 
