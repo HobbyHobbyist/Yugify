@@ -29,15 +29,15 @@ being hidden, which can be toggled by clicking the previewSection. The previewSe
 left whenever a card is hovered (clicking the card's image toggles the tool's display).
 
 Once opened, by clicking the tool's icon, the will be three subsections. The first is a yugipedia link, it doesn't interact with the other 
-sections when clicked. Whereas the other sections will modify their datasets to make their "expanded" dataset "true." Css makes them larger 
-and reveals their contents once their "expanded" dataset is true. They also give the other sections (those that aren't the clicked section), 
-gain a "true" dataset of "retracted," retracting the other sections. 
+sections when clicked. Whereas the other sections will modify their datasets to make their own "expanded" dataset "true" and retract the others.
+Css makes them larger and reveals their contents once their "expanded" dataset is true. They also give the other sections (those that aren't 
+the clicked section) a "true" value for the dataset "retracted," retracting the other sections. 
 
 Many other happenings work as clearly as the above, so I won't focus on them. What I will mention is that the various context menus do not work 
-as straightfowardly. Instead of each left-click on cards simply opening their own context menu or so, there are actually only 2 context menus 
+as straightfowardly. Instead of each left-click on cards simply making their own context menu or so, there are actually only 2 context menus 
 that get overrided whenever cards and steps are left-clicked; One of the steps to doing so is calling the function "contextualizeContextMenu," 
 so ctrl+f-ing for it is a good lead if a person desires to add more functionality to said context menus as the contextualizeContextMenu is called
-in areas where a context menu is overrided and provide a clearer view of what's occuring.
+in areas where a context menu is overrided. Said areas provide a clearer view of what's occuring.
 
 -----------------------------------------------------------------------------------------
 
@@ -51,3 +51,6 @@ QTWBAF (Questions That Would Be Asked Frequently [if this hypothetically saw any
   
 #2 Combos and searchers aren't shown while all the cards have the same image, why? 
   These all rely on the backend, so they don't work as ideally intended (or at all) without the backend.
+  
+#3 Some cards can't be found when I search for the name, why? 
+  This relies on what cards cards.json supplies, and cards.json can be and most likely is out of date! (such as it is at the time of this wiritng :3)
