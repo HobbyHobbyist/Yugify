@@ -14,6 +14,7 @@ that appears behind (left to right) the text "Manage Your Extensions" and beneat
 "Debug Add-ons." Click it. There will be a section called "Temporary Extensions" with an option "Load Temporary Add-ons." Click it, navigate 
 your files to where this project is downloaded, then click this project's "Yugify.js" file. Done!
 
+------------------------------------------------------------------------------------------------
 -- Ignore if not interested in modifying (I just like writing) --
 
 #2. More detailed information that can be used with ctrl + f to navigate the project more easily.
