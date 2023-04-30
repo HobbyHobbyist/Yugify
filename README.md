@@ -24,7 +24,7 @@ of card names that have their indexes as suffixes. This allows them to be search
 functions, to be found simultaneously by matching inputed text to card names. Afterwards, the tool and all its subsections are intialized. 
 
 The tool isn't immediately present because it checks for two conditions. The first is that the variable "previewSection"'s parent's parent's 
-(2nd ancestor) has the id "deck_constructor," which means the tool only displays in the deck building mode. The second is that the tool isn't 
+(2nd ancestor) has the id "deck_constructor," which means the tool only displays in the deck building mode. The second condition is that the tool isn't 
 being hidden, which can be toggled by clicking the previewSection. The previewSection is the container of the large card that's shown to the 
 left whenever a card is hovered (clicking the card's image toggles the tool's display).
 
