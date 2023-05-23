@@ -26,9 +26,9 @@ functions, to be found simultaneously by matching inputed text to card names. Af
 The tool isn't immediately present because it checks for two conditions. The first is that the variable "previewSection"'s parent's parent's 
 (2nd ancestor) has the id "deck_constructor," which means the tool only displays in the deck building mode. The second condition is that the tool isn't 
 being hidden, which can be toggled by clicking the previewSection. The previewSection is the container of the large card that's shown to the 
-left whenever a card is hovered (clicking the card's image toggles the tool's display).
+top left whenever a card is hovered (clicking the card's image toggles the tool's display) in the deck constructor.
 
-Once opened, by clicking the tool's icon, the will be three subsections. The first is a yugipedia link, it doesn't interact with the other 
+Once opened, by clicking the tool's icon, there will be three subsections. The first is a yugipedia link, it doesn't interact with the other 
 sections when clicked. Whereas the other sections will modify their datasets to make their own "expanded" dataset "true" and retract the others.
 Css makes them larger and reveals their contents once their "expanded" dataset is true. They also give the other sections (those that aren't 
 the clicked section) a "true" value for the dataset "retracted," retracting the other sections. 
